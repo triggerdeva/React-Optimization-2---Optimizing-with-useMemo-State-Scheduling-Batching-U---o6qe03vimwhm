@@ -1,4 +1,4 @@
-import React, { Profiler, useMemo } from "react";
+import React, { memo, Profiler, useCallback, useMemo } from "react";
 import { useState } from "react";
 import "../styles/App.css";
 import primeNumber from "../function";
@@ -8,6 +8,8 @@ const App = () => {
 };
 
 const OptimizeTheOperation = ({ onClick }) => {
+  console.log('app render');
+
   const [number, setNumber] = useState(10000);
 
   const prime = primeNumber(number);
@@ -41,4 +43,4 @@ const OptimizeTheOperation = ({ onClick }) => {
   );
 };
 
-export default App;
+export default memo(App);
